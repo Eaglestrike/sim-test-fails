@@ -9,12 +9,15 @@
 #include <frc/DataLogManager.h>
 #include <wpi/DataLog.h>
 
+#include <frc/DataLogManager.h>
+#include <wpi/DataLog.h>
+#include <wpi/DataLogReader.h>
+
+
+
+#include <iostream>
+
 void Robot::RobotInit() {
-  frc::DataLogManager::Start();
-  wpi::log::DataLog& log = frc::DataLogManager::GetLog();
-  auto entry = wpi::log::StringLogEntry(log, "/my/lucylog");
-  entry.Append("LUCILLE_RENEE_KRAVERLICH");
-  entry.Append("CALEB_IS_NOT_A_HUMAN_BEING");
 }
 
 /**
