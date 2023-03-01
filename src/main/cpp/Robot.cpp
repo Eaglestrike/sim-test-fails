@@ -18,6 +18,9 @@
 #include <iostream>
 
 void Robot::RobotInit() {
+  wpi::log::DataLog& log = frc::DataLogManager::GetLog();
+  auto entry = wpi::log::StringLogEntry(log, "/simtesting/loginfo");
+  entry.Append("START");
 }
 
 /**
@@ -42,24 +45,18 @@ void Robot::RobotPeriodic() {}
  * make sure to add them to the chooser code above as well.
  */
 void Robot::AutonomousInit() {
-  m_autoSelected = m_chooser.GetSelected();
-  // m_autoSelected = SmartDashboard::GetString("Auto Selector",
-  //     kAutoNameDefault);
-  fmt::print("Auto selected: {}\n", m_autoSelected);
-
-  if (m_autoSelected == kAutoNameCustom) {
-    // Custom Auto goes here
-  } else {
-    // Default Auto goes here
-  }
 }
 
 void Robot::AutonomousPeriodic() {
-  if (m_autoSelected == kAutoNameCustom) {
-    // Custom Auto goes here
-  } else {
-    // Default Auto goes here
-  }
+  wpi::log::DataLog& log = frc::DataLogManager::GetLog();
+  auto entry = wpi::log::StringLogEntry(log, "/my/lucylog");
+  entry.Append("LUCILLE_RENEE_KRAVERLICH");
+  sleep(0.001);
+  entry.Append("CALEB_IS_NOT_A_HUMAN_BEING_BUT_REALLY_NOT_KIDDING_RRR");
+  auto entry2 = wpi::log::DoubleLogEntry(log, "/my/doublelog");
+  entry2.Append(69.0);
+  entry2.Append(100.0);
+  frc::SmartDashboard::PutNumber("hey", 801.333);
 }
 
 void Robot::TeleopInit() {}
